@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid">
+      <div class="row col-md-12">
+        <div class="col-sm-3 col-md-2 sidebar">
+
+          {% include 'include.html' %}
+
+        </div>
+          <div class="col-sm-9  col-md-10">
+            {%if messages%}
+                 {%for message in messages%}
+                   <div class="alert-success" style="padding:7px;border-radius:7px;moz-border-radius:7px;web-border-radius:7px;">{{message}}</div>
+                 {%endfor%}
+            {%endif%}
+             <form action="" method="post" enctype="multipart/form-data">{%csrf_token%}
+                 <table id="example1" class="table table-bordered table-striped">
+                     {{formupload.as_table}}
+                 </table>
+
+
+                 <div class="form-group">
+                    <button class="btn btn-warning" type="submit">Upload</button>
+                 </div>
+
+             </form>
+              <section>
+                  {% for book in books %}
+                     {{book.title}}
+                  {% endfor %}
+              </section>
+          </div>
+      </div>
+</div>
+
+{% endblock %}

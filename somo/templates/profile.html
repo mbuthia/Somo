@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static%}
+    {% if messages %}
+{% for message in messages %}
+ <div class="alert-success" style="padding:7px;border-radius:7px;moz-border-radius:7px;web-border-radius:7px;">{{message}}</div>
+{% endfor %}
+{% endif %}
+ <div class="panel-body">
+               <div class="row">
+                        <div class="col-md-9">
+                            <form id="form-profile" role="form" method="POST" action="/profile/" enctype="multipart/form-data">
+                                {%csrf_token%}
+
+                                <input name='id' type="hidden" value=''/>
+                                <div class="row">
+                                    <!--Contact Info-->
+                                    <div class="col-md-9 col-sm-9">
+                                        <br>
+                                            <h3><i class="glyphicon glyphicon-user"></i> &nbsp;Personal Info</h3>
+                                             {{form.as_table}}</br>
+                                        </section>
+
+
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-large btn-success" id="submit">Save Changes</button>
+                                        </div>
+                                        <!-- /.form-group -->
+                                    </div>
+                                    <!--/.col-md-6-->
+                                </div>
+                            </form>
+                        </div>
+                        <!--Password-->
+
+                        </div>
+                        <!-- /.col-md-3-->
+                    </div>
+                </section>
+            </div>
+
+{% endblock %}

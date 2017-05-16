@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static%}
+<div class="container-fluid">
+      <div class="row col-md-12">
+        <div class="col-sm-3 col-md-2 sidebar">
+
+          {% include 'include.html' %}
+
+        </div>
+        <div class="col-sm-9  col-md-10">
+
+            <table id="example1" class="table table-bordered table-striped">
+                {% for my_download in my_downloads %}
+                {% if my_download.book %}
+
+
+               <div class="alert-success" style="padding:7px;border-radius:7px;moz-border-radius:7px;web-border-radius:7px;">No downloads you have made </div>
+                {% else %}
+
+                <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Description</th>
+                  <th>Year</th>
+
+                </tr>
+                </thead>
+                <tbody>
+
+                <tr>
+                  <td>{{my_download.book}}</td>
+                  <td>{{my_download.date}}</td>
+
+
+
+                </tr>
+
+
+
+                </tbody>
+                <tfoot>
+                <tr>
+                  <th>Title</th>
+                  <th>Description</th>
+                  <th>Year</th>
+
+                </tr>
+                </tfoot>
+              </table>
+            {% endif %}
+            {% endfor %}
+
+
+             <div class="alert-success" style="padding:7px;border-radius:7px;moz-border-radius:7px;web-border-radius:7px;">Available Downloads </div>
+              <section>
+
+                   <table  class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Description</th>
+                  <th>Year</th>
+                  <th>Semester</th>
+
+                    <th>Download</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for book in books %}
+
+                <tr>
+                  <td>{{book.title}}</td>
+                  <td>{{book.description}}</td>
+                  <td>{{book.year}}</td>
+                  <td>{{book.semester}}</td>
+
+
+                    <td><a href="{{MEDIA_URL}}{{book.document}}">Download</a></td>
+                </tr>
+                 {% endfor %}
+
+
+                </tbody>
+                <tfoot>
+                <tr>
+                  <th>Title</th>
+                  <th>Description</th>
+                  <th>Year</th>
+                  <th>Semester</th>
+                  <th>Download</th>
+                </tr>
+                </tfoot>
+              </table>
+
+            </section>
+        </div>
+      </div>
+</div>
+
+
+
+
+
+{% endblock %}

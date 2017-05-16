@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+{% if messages %}
+{% for message in messages %}
+{{message}}
+{%endfor%}
+{% endif %}
+ <div class="col-sm-3 col-md-2 sidebar">
+
+          {% include 'include.html' %}
+
+        </div>
+<div class="col-md-3 col-sm-9" style="border-left: 1px solid black;">
+                            <h3><i class="glyphicon glyphicon-asterisk"></i>&nbsp;Password Change</h3>
+
+                            <br>
+                             <div class='alert-success'></div>
+                             <br>
+
+
+                            <form id="form-password" role="form" method="POST" action="" >
+                               {%csrf_token%}
+                                <!--/.form-group-->
+                                <div class="form-group">
+                                   {{form_password.as_p}}
+                                </div>
+                                <!--/.form-group-->
+
+                                <!--/.form-group-->
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-danger">Change Password</button>
+                                </div>
+                                <!-- /.form-group -->
+                            </form>
+</div>
+{% endblock %}

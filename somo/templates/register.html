@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static%}
+<style>
+
+</style>
+
+ <div class="col-md-12" style="margin-top:10px;">
+<div class="jumbotron  col-md-6 col-md-offset-3">
+<div class="form-group"  >
+
+
+<h3>User sign up</h3>
+
+<form action="" method="POST" enctype="multipart/form-data" autocomplete="off">
+   {%csrf_token%}
+   {%if messages%}
+{%for message in messages%}
+<div class="alert-success" style="padding:7px;border-radius:7px;moz-border-radius:7px;web-border-radius:7px;">{{message}}</div>
+{%endfor%}
+{%endif%}
+{{  form.as_p }}
+<div class="form-group">
+
+<button class="btn btn-warning" type="submit">Register</button>
+   already signed up ?
+   <button class="btn btn-success"><a href="{% url 'login' %}"><i class='fa fa-lock'></i> LOGIN</a></button>
+
+</div>
+
+
+</form>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+{% endblock %}

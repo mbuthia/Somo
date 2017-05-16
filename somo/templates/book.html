@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static%}
+<div class="container-fluid">
+      <div class="row col-md-12">
+        <div class="col-sm-3 col-md-2 sidebar">
+
+          {% include 'include.html' %}
+
+        </div>
+        <div class="col-sm-9  col-md-10">
+
+            <section>
+
+                   <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Description</th>
+                  <th>Year</th>
+                  <th>Semester</th>
+
+                    <th>View Details</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for book in books %}
+
+                <tr>
+                  <td>{{book.title}}</td>
+                  <td>{{book.description}}</td>
+                  <td>{{book.year}}</td>
+                  <td>{{book.semester}}</td>
+
+
+
+                    <td><a href="{% url 'detail' book.id %}" >Details</a></td>
+                </tr>
+                 {% endfor %}
+
+
+                </tbody>
+                <tfoot>
+                <tr>
+                  <th>Title</th>
+                  <th>Description</th>
+                  <th>Year</th>
+                  <th>Semester</th>
+                    <th>View Details</th>
+                </tr>
+                </tfoot>
+              </table>
+
+            </section>
+         </div>
+
+        </div>
+      </div>
+{% endblock %}
