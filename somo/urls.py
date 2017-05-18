@@ -13,7 +13,6 @@ urlpatterns = [
     url(r'^changepassword',views.change,name='change'),
     url(r'^books/$',views.book,name='books'),
     url(r'^download/$',views.myDownload,name='download'),
-
     url(r'^upload/$',views.myUpload,name='upload'),
     url(r'^(?P<id>[0-9]+)/detail/$',views.details,name='detail')
 
